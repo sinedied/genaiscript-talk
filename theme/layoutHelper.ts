@@ -10,29 +10,30 @@ export function resolveAssetUrl(url: string) {
 }
 
 export function handleBackground(background?: string, dim = false): CSSProperties {
-  const isColor = background && ['#', 'rgb', 'hsl'].some(v => background.indexOf(v) === 0)
-
+  const isColor = background && (['#', 'rgb', 'hsl'].some(v => background.indexOf(v) === 0));
+  const isCss = background && (['url', 'gradient'].some(v => background.includes(v)));
+  
   const style = {
-    background: isColor
-      ? background
-      : undefined,
+    ...(isColor || isCss ? {
+      background: isColor || isCss
+        ? background
+        : undefined,
+    } : {
+      backgroundImage: isColor || isCss
+        ? undefined
+        : background
+          ? dim
+            ? `linear-gradient(#0005, #0008), url(${resolveAssetUrl(background)})`
+            : `url("${resolveAssetUrl(background)}")`
+          : undefined,
+    }),
     color: (background && !isColor)
       ? 'white'
       : undefined,
-    backgroundImage: isColor
-      ? undefined
-      : background
-        ? dim
-          ? `linear-gradient(#0005, #0008), url(${resolveAssetUrl(background)})`
-          : `url("${resolveAssetUrl(background)}")`
-        : undefined,
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     backgroundSize: 'cover',
   }
-
-  if (!style.background)
-    delete style.background
 
   return style
 }

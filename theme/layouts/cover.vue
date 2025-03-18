@@ -7,9 +7,13 @@ const props = defineProps({
     // random image from a curated Unsplash collection by Anthony
     default: 'https://source.unsplash.com/collection/94734566/1920x1080',
   },
+  dim: {
+    type: Boolean,
+    default: true,
+  },
 })
 
-const style = computed(() => handleBackground(props.background, true))
+const style = computed(() => handleBackground(props.background, props.dim))
 </script>
 
 <template>

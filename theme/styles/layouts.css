@@ -1,12 +1,7 @@
 :root {
   /* --slidev-theme-primary: #5d8392; */
-  /* --slidev-theme-primary: #0078d7; */
-  --slidev-theme-primary: #006abe; /* darken(#0078d7, 5%) */
-}
-
-.logo-inline {
-  display: inline-block;
-  width: 10%;
+  --slidev-theme-primary: #0078d7;
+  /* --slidev-theme-primary: #006abe; /* darken(#0078d7, 5%) */
 }
 
 .slidev-layout {
@@ -14,9 +9,9 @@
     color: var(--slidev-theme-primary);
   }
 
-  h1 + p {
+  /* h1 + p {
     @apply -mt-2 opacity-50 mb-4;
-  }
+  } */
 
   p + h2, ul + h2, table + h2 {
     @apply mt-10;
