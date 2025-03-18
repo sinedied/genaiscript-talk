@@ -2,22 +2,23 @@
 theme: ./theme
 title: "Prompting is the New Scripting: Meet GenAIScript"
 info: ""
-background: https://cover.sli.dev
-# apply unocss classes to the current slide
+# apply unocss classes
 class: text-center
 # slide transition: https://sli.dev/guide/animations.html#slide-transitions
 transition: fade
 mdc: true
+selectable: true
 fonts:
   sans: Noto Sans
   serif: Noto Sans
   mono: Incosolata
 colorSchema: dark
-zoom: 2.5
+background: ./images/bg.png
+zoom: 2.3
 ---
 
 ```js
-$('.hello').text('DotJS');
+$('#hello').text('DotJS');
 ```
 
 <!-- 
@@ -29,9 +30,11 @@ Nearly 20 years ago, jQuery changed the way we build web applications. It made i
 -->
 
 ---
-layout: center
+title: "jQuery for GenAI"
+layout: cover
+background: ./images/bg2.png
 class: text-center
-zoom: 2.5
+zoom: 2.3
 ---
 
 ````md magic-move
@@ -56,83 +59,67 @@ And you're going to see that it's way more than a simple wrapper for prompts.
 
 
 ---
-layout: intro
-background: https://cover.sli.dev
+layout: cover
+background: 'linear-gradient(#0000, #0008, #0000), url(images/bg5.png)'
 class: text-left
-zoom: .95
+zoom: .99
 ---
 
 # Prompting is the New Scripting
-## ![](./images/genaiscript.svg){.logo-inline} Meet GenAIScript
 
-<!-- <div class="me">
+<Me/>
 
-- Yohan Lasorsa
-- Principal Developer Advocate @ ![](./images/microsoft-small.svg){.logo-inline}
-- GDE for Angular, OSS maintainer/contributor, Web geek
-- twitter logo, blusky logo, github logo  [@sinedied](https://twitter.com/sinedied)
-- [in/yohanlasorsa](https://www.linkedin.com/in/yohanlasorsa/)
-
-</div> -->
+## ![](./images/genaiscript.svg){.inline-block .w-20 .m-r-4} Meet GenAIScript{.font-size-8}
 
 <!--
 Hey folks, I'm Yohan Lasorsa, and I work as Developer Advocate at Microsoft.
-
+I maintain many open source projects on my free time, and I'm always looking for ways to make it more manageable.
 -->
 
 
 ---
-layout: image
-image: https://microsoft.github.io/genaiscript/assets/genaiscript.png
+title: Issue without context
+layout: center
 ---
-
-<!-- TODO: image of GH issue in OSS project -->
+![](./images/not-working.png){.inline-block .border-rounded-xl}
 
 <!-- 
-I maintain many open source projects on my free time, and I'm always looking for ways to make it more manageable. Even simple things like going through issues to say that you can't help with a bug if you don't have more context on how to reproduce it, or asking for more details about the changes in a PR.
+Answering issues like these to explain that you need some context to be able to help, 
+-->
+
+---
+title: PR without details
+layout: center
+---
+![](./images/pr-details.png){.inline-block .border-rounded-xl}
+
+<!--
+Or asking for more details about the changes in a PR - takes time. And it's not the really the fun part.
 
 That's how I initially started using GenAIScript.
 -->
 
 ---
-
+zoom: 1.4
+layout: center
+# layout: image-left
+# image: images/genaiscript.svg
 ---
 
+![](./images/genaiscript.svg){.inline-block .w-20 .m-r-4 .float-left}
 # GenAIScript
+[aka.ms/genaiscript](https://aka.ms/genaiscript)
+
+<br>
+
+- Use with CLI, VS Code or GitHub Copilot
+- Works with GitHub Models, OpenAI, Anthropic, Ollama...
+- Supports MCP, vector search, RAG, multi-modal...
+- Built-in prompts, tools and agents
 
 <!--
 GenAIScript is a JS toolbox for GenAI to help you get more productive with it, allowing you to create even agents to do complex tasks for you, as simple as writing a script. 
 -->
-
-
-
----
-transition: slide-up
-level: 2
----
-
-# Navigation
-
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
-
-## Keyboard Shortcuts
-
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
 
 
 ---
@@ -260,50 +247,6 @@ const author = {
 </script>
 ```
 ````
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
-
 
 ---
 
@@ -503,39 +446,3 @@ database "MySql" {
 Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
 
 
----
-
-# Monaco Editor
-
-Slidev provides built-in Monaco Editor support.
-
-Add `{monaco}` to the code block to turn it into an editor:
-
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
-
-const arr = ref(emptyArray(10))
-```
-
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
-
-```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
-
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
-```
-
----
-layout: center
-class: text-center
----
-
-# Learn More
-
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
-
-<PoweredBySlidev mt-10 />
