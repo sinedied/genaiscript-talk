@@ -69,7 +69,7 @@ zoom: .99
 
 <Me/>
 
-## ![](./images/genaiscript.svg){.inline-block .w-20 .m-r-4} Meet GenAIScript{.font-size-8}
+## ![](./images/genaiscript.svg){.inline-block .w-15 .m-r-4} Meet GenAIScript{.font-size-8}
 
 <!--
 Hey folks, I'm Yohan Lasorsa, and I work as Developer Advocate at Microsoft.
@@ -119,6 +119,9 @@ layout: center
 
 <!--
 GenAIScript is a JS toolbox for GenAI to help you get more productive with it, allowing you to create even agents to do complex tasks for you, as simple as writing a script. 
+
+It's really meant to be a developer tool and works best when it's used within a project repository.
+What I really like about it is that it connects to the latest TODO 
 -->
 
 
