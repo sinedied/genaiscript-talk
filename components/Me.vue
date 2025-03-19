@@ -1,8 +1,8 @@
 <template>
-  <div position="absolute right-6xl bottom-4xl" flex="~ col"  p="4" float="right" font="size-3" border="rounded-xl" bg="op-30 black">
+  <div position="absolute right-6xl bottom-4xl" flex="~ col"  p="4" float="right" font="size-4" border="rounded-xl" bg="op-30 black">
     <h3>Yohan Lasorsa</h3>
     <div class="vertical-middle">
-      Principal Developer Advocate @ <img inline align="sub" src="/images/ms.png" alt="Microsoft Logo" width="14" height="14" />
+      Principal Developer Advocate @ <img inline align="sub" src="/images/ms.png" alt="Microsoft Logo" width="20" height="20" />
     </div>
     <div>GDE for <devicon-angular/>, OSS builder, Web tinkerer</div>
     <div>
