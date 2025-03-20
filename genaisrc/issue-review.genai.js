@@ -1,4 +1,7 @@
 script({
+  title: "Review GitHub Issue",
+  description: "Review a GitHub issue and provide feedback.",
+  group: "GitHub Actions",
   parameters: {
     issue: {
       type: "integer",
@@ -6,6 +9,7 @@ script({
       required: false,
     },
   },
+  model: "ollama:phi4"
 });
 
 const { title, body } = await github.getIssue(env.vars.issue);
@@ -24,4 +28,4 @@ Be brief and friendly.
 ## Instructions
 - Check that has enough details to help the developer. Ask clarifying questions if needed.
 - Do not suggest code changes or guidance. Only provide feedback on the issue itself.
-`
+`;
