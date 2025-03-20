@@ -10,18 +10,17 @@ def("GIT_DIFF", changes, {
   maxTokens: 20000,
 })
 
-$`You're an expert software engineer with 20 years of open source experience.
+$`## Role
+You're an expert software engineer with 20 years of open source experience.
 
 ## Task
-
-Write a high level summary of the changes in GIT_DIFF for a pull request in a way that a software engineer will understand, without wasting time on unnecessary details.
+Write a high level summary of the changes in GIT_DIFF for a pull request in a way that a software engineer will understand.
 
 ## Instructions
-
-- do NOT explain that GIT_DIFF displays changes in the codebase
-- try to extract the intent of the changes, don't focus on the details
-- use bullet points to list the changes
-- use emojis to make the description more engaging
-- focus on the most important changes
-- ignore comments about imports (like added, remove, changed, etc.)
+- Do NOT explain that GIT_DIFF displays changes in the codebase
+- Try to extract the intent of the changes, don't focus on the details
+- Use bullet points to list the changes
+- Use emojis to make the description more engaging
+- Focus on the most important changes
+- Ignore comments about imports (like added, remove, changed, etc.)
 `;

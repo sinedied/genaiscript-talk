@@ -1,11 +1,10 @@
-name: GenAI PR Review
+name: GenAI Issue Review
 on:
-  workflow_dispatch:
-  pull_request:
-    types: [opened, ready_for_review, reopened]
+  issue_comment:
+    types: [created, opened, edited]
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: issue-${{ github.event.issue.number }}
   cancel-in-progress: true
 
 env:
@@ -13,9 +12,11 @@ env:
 
 jobs:
   review:
+    if: github.event.comment.user.login != 'github-actions[bot]'
     runs-on: ubuntu-latest
     permissions:
-      pull-requests: write
+      contents: read
+      issues: write
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
@@ -23,6 +24,7 @@ jobs:
         node-version: 22
         cache: npm
     - name: genaiscript pr-review
-      run: npx -y genaiscript@latest run pr-describe --pull-request-description --out-trace $GITHUB_STEP_SUMMARY
+      run: npx -y genaiscript@latest run issue-review --pull-request-comment --out-trace $GITHUB_STEP_SUMMARY
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_ISSUE: ${{ github.event.issue.number }}
