@@ -1,7 +1,6 @@
 ---
 theme: ./theme
 title: "Prompting is the New Scripting: Meet GenAIScript"
-info: ""
 # apply unocss classes
 class: text-center
 # slide transition: https://sli.dev/guide/animations.html#slide-transitions
@@ -22,15 +21,13 @@ $('#hello').text('DotJS');
 ```
 
 <!-- 
-
 jQuery once simplified web development by abstracting away complexities—and I think AI needs the same today.
 
 Nearly 20 years ago, jQuery changed the way we build web applications. It made it easier to manipulate the DOM, handle events, and create animations. It was a game-changer, abstracting away the complexities and quirks of cross-browser compatibility, allowing developers like me to focus on what they wanted to achieve. AI needs the same today.
-
 -->
 
 ---
-title: "jQuery for GenAI"
+title: jQuery for GenAI?
 layout: cover
 background: ./images/bg2.png
 class: text-center
@@ -57,17 +54,17 @@ This code here is valid JS that makes use of GenAI.
 And you're going to see that it's way more than a simple wrapper for prompts.
 -->
 
-
 ---
 layout: cover
 background: 'linear-gradient(#0000, #0008, #0000), url(images/bg5.png)'
+# background: 'linear-gradient(#0005, #000a, #0008), url(images/bg2.png)'
 class: text-left
 zoom: .99
 ---
 
 # Prompting is the New Scripting
 
-<Me/>
+<Me class="animate-keyframes-fade-in animate-duration-1000 animate-ease-in-out animate-fill-mode-forwards animate-delay-2000 op-0"/>
 
 ## ![](./images/genaiscript.svg){.inline-block .w-15 .m-r-4} Meet GenAIScript{.font-size-8}
 
@@ -75,7 +72,6 @@ zoom: .99
 Hey folks, I'm Yohan Lasorsa, and I work as Developer Advocate at Microsoft.
 I maintain many open source projects on my free time, and I'm always looking for ways to make it more manageable.
 -->
-
 
 ---
 title: Issue without context
@@ -94,9 +90,11 @@ layout: center
 ![](./images/pr-details.png){.inline-block .border-rounded-xl}
 
 <!--
-Or asking for more details about the changes in a PR - takes time. And it's not the really the fun part.
+Or looking through all the changes in a PR trying to understand it - takes time. And it's not the really the fun part.
 
-That's how I initially started using GenAIScript.
+And since I've been working with GenAI for a while now, I thought that it could actually be useful for stuff like this, if I could make it work without too much effort!
+
+That's how I started looking into GenAIScript.
 -->
 
 ---
@@ -114,58 +112,50 @@ layout: center
 
 - Use with CLI, VS Code or GitHub Copilot
 - Works with GitHub Models, OpenAI, Anthropic, Ollama...
-- Supports MCP, vector search, RAG, multi-modal...
-- Built-in prompts, tools and agents
+- Built-in prompts, tools, agents and helpers
+<!-- - Supports MCP, vector search, RAG, multi-modal... -->
 
 <!--
-GenAIScript is a JS toolbox for GenAI to help you get more productive with it, allowing you to create even agents to do complex tasks for you, as simple as writing a script. 
+GenAIScript is a Open Source JS toolbox for GenAI that helps you get more productive with it, allowing you to create even agents to do complex tasks for you, as simple as writing a script. 
 
 It's really meant to be a developer tool and works best when it's used within a project repository.
-What I really like about it is that it connects to the latest TODO 
+
+But really instead of telling you about its extensive set of features, let's see it in action.
+
+=> Switch to DEMO
 -->
 
-
 ---
-layout: image-right
-image: https://cover.sli.dev
+layout: left
+image: images/genaiscript.svg
+hide: true
 ---
 
-# Code
+# Syntax recap
 
-Use code snippets and get the highlighting directly, and even types hover!
+```ts
+// Prompt templates
+$`Say hello to ${name}`
 
-```ts {all|5|7|7-8|10|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
+// Set context
+def(README, 'README.md')
+defImage(PICTURE, 'https://sli.dev/logo-square.png')
 
-import { computed, ref } from 'vue'
+// Create tools
+defTool(
+  'random',
+  'Generate a random number',
+  async () => Math.random(),
+)
 
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
-
-doubled.value = 2
+// Create agents
+defAgent(
+  'math',
+  'Agent that does math operations',
+  `You're a math expert. Answer the question using provided tools.`,
+  { system: 'python', tools: ['random'] },
+)
 ```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="334" color="#953" width="2" arrowSize="1" />
-
-
-<!-- Footer -->
-
-[Learn more](https://sli.dev/features/line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
 
 <!--
 Notes can also sync with clicks
@@ -178,274 +168,79 @@ Notes can also sync with clicks
 -->
 
 ---
-level: 2
+title: There's more
+layout: cover
+background: images/bg2.png
+class: align-middle, font-size-4, more-slide
+zoom: 1.4
 ---
 
-# Shiki Magic Move
-
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
+<style>
+.more-slide span {
+  opacity: 0;
+  @apply animate-keyframes-fade-in animate-duration-1000 animate-ease-in-out animate-fill-mode-forwards;
+  animation-delay: calc(var(--o) * 300ms + 2s);
 }
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
+.no-anim {
+  opacity: 1 !important;
+  animation: none !important;
 }
-```
+</style>
 
-Non-code blocks are ignored.
+[MCP tools]{.font-size-5.animate-delay-1000 style="--o: 1"} &nbsp;&nbsp;&nbsp;&nbsp; [Audio Transcription]{.text-gray-3 style="--o: 17"} &nbsp;&nbsp;&nbsp;&nbsp; Image & Video Input{.font-size-5 style="--o: 8"}
 
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
-```
-````
+[RAG]{style="--o: 21"} &nbsp;&nbsp;&nbsp;&nbsp; [Structured Outputs]{.font-size-5 style="--o: 4"} &nbsp;&nbsp;&nbsp;&nbsp; [@agentic tools]{.text-gray-3 style="--o: 16"} &nbsp;&nbsp;&nbsp;&nbsp; [Browser control]{style="--o: 9"}
+
+[Multi-Agents]{.font-size-6 style="--o: 0.1"} &nbsp;&nbsp;&nbsp;&nbsp; [🤩]{.font-size-16 .m-4 .inline-block .align-middle .no-anim} &nbsp;&nbsp;&nbsp;&nbsp; [Jupyter Notebooks]{style="--o: 11"}
+
+[PromptFoo evals]{style="--o: 12"} &nbsp;&nbsp;&nbsp; [Office, PDF, XML, CSV, HTML...]{.text-gray-3.font-size-3 style="--o: 6"} &nbsp;&nbsp;&nbsp; [Agent Memory]{.font-size-5 style="--o: 2"} &nbsp;&nbsp; [TypeScript]{.font-size-4 style="--o: 18"}
+
+[Teams Integration]{.text-gray-3 style="--o: 15"} &nbsp;&nbsp;&nbsp;&nbsp; [User Input]{.font-size-5 style="--o: 20"} &nbsp;&nbsp;&nbsp;&nbsp; [Vector Search]{.font-size-3 style="--o: 5"} &nbsp;&nbsp;&nbsp;&nbsp; [Semantic Caching]{style="--o: 13"}
+
+[Containers]{.font-size-5 style="--o: 3"} &nbsp;&nbsp;&nbsp;&nbsp; [JSON schema]{style="--o: 14"} &nbsp;&nbsp;&nbsp;&nbsp; [Jinja Templates]{.text-gray-3 style="--o: 7"} &nbsp;&nbsp;&nbsp;&nbsp; [Zod]{style="--o: 19"}
+
+<!--
+There's way more to GenAIScript that what I can show you in 20min, and if there's a fancy new AI tool or pattern that you've heard about, there are good chances that GenAIScript already has it or will have it soon.
+
+But to my regret there's a small catch...
+-->
 
 ---
-
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
-
-<div v-click>
-
-This shows up when you click the slide:
-
-```html
-<div v-click>This shows up when you click the slide.</div>
-```
-
-</div>
-
-<br>
-
-<v-click>
-
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
-
-</v-click>
-
-<div mt-20 v-click>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
-
-</div>
-
+title: It's only a developer tool
+layout: center
 ---
 
-# Motions
-
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
-```
-
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
+<style>
+.slidev-vclick-target {
+  opacity: 1;
+  transition: all 1s ease;
 }
-</script>
 
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
+.slidev-vclick-hidden {
+  opacity: 0;
+  font-size: 0;
+}
+</style>
 
-[Learn more](https://sli.dev/guide/animations.html#motion)
+# It's<span v-click class="font-size-6 color-white align-middle">&nbsp;(only)</span> a developer tool
 
-</div>
-
-
+<!-- 
+Right now, it's build as tool for you to use rather than a framework to build applications. but I hope that we'll get GenAI frameworks in the future that gets inspired by this simplicity.
+-->
 
 ---
+layout: center
+class: font-size-6
+---
 
-# Diagrams
+# Links{.font-size-10}<br>
 
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
+<!-- qrcode -->
+- Slides: [bit.ly/genaiscript-talk](https://bit.ly/genaiscript-talk)
+- Tool: [aka.ms/genaiscript](https://aka.ms/genaiscript)
 
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
+<Contact/>
 
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
-
-
+<!--
+If you feel like GenAI could help you automate some of your tasks, but you don’t know where to start and you don't want to spend too much time on it, I think GenAIScript is a great place to begin.
+-->

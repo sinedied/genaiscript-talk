@@ -1,7 +1,15 @@
 :root {
   /* --slidev-theme-primary: #5d8392; */
-  --slidev-theme-primary: #0078d7;
+  /* --slidev-theme-primary: #0078d7; */
+  --slidev-theme-primary: #f4bc02;
   /* --slidev-theme-primary: #006abe; /* darken(#0078d7, 5%) */
+}
+
+.dark .slidev-slide-content {
+  /* @apply bg-white dark:bg-[#1e1e1e]; */
+  /* background: linear-gradient(-70deg, #1f0325, #181818, #250303) !important; */
+  background: linear-gradient(-90deg, #00000020, #00000050), url(./images/bg-dark.png) !important;
+  background-size: contain !important;
 }
 
 .slidev-layout {
