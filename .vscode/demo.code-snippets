@@ -1,0 +1,189 @@
+{
+	// Place your openscad workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"prprompt": {
+		"prefix": "pr_prompt",
+		"scope": "javascript",
+		"body": [
+			"\\$`## Role",
+			"You're an expert software engineer with 20 years of open source experience.",
+			"",
+			"## Task",
+			"Write a high level summary of the changes in GIT_DIFF for a pull request in a way that a software engineer will understand.",
+			"",
+			"## Instructions",
+			"- Do NOT explain that GIT_DIFF displays changes in the codebase",
+			"- Try to extract the intent of the changes, don't focus on the details",
+			"- Use bullet points to list the changes",
+			"- Use emojis to make the description more engaging",
+			"- Focus on the most important changes",
+			"- Ignore comments about imports (like added, remove, changed, etc.)",
+			"`;"
+		],
+	},
+	"prdiff": {
+		"prefix": "pr_diff",
+		"body": [
+			"def(\"GIT_DIFF\", changes, {",
+			"  language: \"diff\",",
+			"  maxTokens: 20000,",
+			"});"
+		],
+		"description": "",
+		"scope": "javascript"
+	},
+	"prchanges": {
+		"prefix": "pr_changes",
+		"body": [
+			"const changes = await git.diff({",
+			"  staged: true,",
+			"  excludedPaths: [",
+			"    \"**/package-lock.json\",",
+			"  ],",
+			"});"
+		],
+		"description": "",
+		"scope": "javascript"
+	},
+	"issueprompt": {
+		"prefix": "issue_prompt",
+		"body": [
+			"\\$`## Role",
+			"You're an expert software engineer with 20 years of open source experience.",
+			"",
+			"## Task",
+			"You're reviewing a GitHub issue.",
+			"Review the <TITLE> and <BODY> and report your feedback that will be added as a comment to the issue.",
+			"Be brief and friendly.",
+			"",
+			"## Instructions",
+			"- Check that it has enough details to help the developer. Ask clarifying questions if needed.",
+			"- Do not suggest code changes or guidance. Only provide feedback on the issue itself.",
+			"`;"
+		],
+		"description": "",
+		"scope": "javascript"
+	},
+	"issuedef": {
+		"prefix": "issue_def",
+		"body": [
+			"def(\"TITLE\", title);",
+			"def(\"BODY\", body);"
+		],
+		"description": "",
+		"scope": "javascript"
+	},
+	"issuegithub": {
+		"prefix": "issue_github",
+		"body": [
+			"const { title, body } = await github.getIssue(env.vars.issue);"
+		],
+		"description": "",
+		"scope": "javascript"
+	},
+	"issuescript": {
+		"prefix": "issue_script",
+		"body": [
+			"script({",
+			"  parameters: {",
+			"    issue: {",
+			"      type: \"integer\",",
+			"      description: \"The issue number to answer.\",",
+			"      required: false,",
+			"    },",
+			"  },",
+			"});"
+		],
+		"description": "",
+		"scope": "javascript"
+	},
+	"chprompt": {
+		"prefix": "ch_prompt",
+		"body": [
+			"\\$`Create a file CHANGELOG.md.",
+			"Include a list of changes based on the last 15 commits, including new features, bug fixes, and breaking changes. Be clear and concise, do not include any unnecessary details and skip useless commits.`;"
+		],
+		"description": "",
+		"scope": "javascript"
+	},
+	"chdefagent": {
+		"prefix": "ch_def_agent",
+		"body": [
+			"defAgent(",
+			"  \"git-cli\",",
+			"  \"Query a repo with Git to accomplish tasks\",",
+			"  `You're a helpful LLM agent that can use a subset of git commands on the current repository.",
+			"  Answer the question in QUERY.`,",
+			"  { system: [\"system.git\"] }",
+			");"
+		],
+		"description": "",
+		"scope": "javascript"
+	},
+	"bgprompt": {
+		"prefix": "bg_prompt",
+		"body": [
+			"\\$`## Instructions",
+			"Create an enriched prompt for Dall-E 3 based on QUERY, adding details to the original prompt so it can generate a background image for a presentation.",
+			"Then generate 3 images based on the same enriched prompt using the gen_image tool.",
+			"Once you've finished, just say that you're done.`;"
+		],
+		"description": "",
+		"scope": "javascript"
+	},
+	"bgdef": {
+		"prefix": "bg_def",
+		"body": [
+			"def(\"QUERY\", env.vars.question);"
+		],
+		"description": "",
+		"scope": "javascript"
+	},
+	"bgtool": {
+		"prefix": "bg_tool",
+		"body": [
+			"defTool(",
+			"  \"gen_image\",",
+			"  \"Generate an image\",",
+			"  { prompt: \"\" },",
+			"  async (args) => {",
+			"    const { image } = await generateImage(args.prompt, { size: \"1792x1024\" });",
+			"    env.output.appendContent(`[![background](\\${image.filename})](\\${image.filename})`);",
+			"    return image.filename;",
+			"  },",
+			");"
+		],
+		"description": "",
+		"scope": "javascript"
+	},
+	"bgscript": {
+		"prefix": "bg_script",
+		"body": [
+			"script({",
+			"  parameters: {",
+			"    question: {",
+			"      type: \"string\",",
+			"      description: \"The question to answer.\",",
+			"      required: true,",
+			"    },",
+			"  },",
+			"});"
+		],
+		"description": "",
+		"scope": "javascript"
+	}
+}
