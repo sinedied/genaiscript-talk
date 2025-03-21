@@ -1,3 +1,13 @@
+script({
+  parameters: {
+    question: {
+      type: "string",
+      description: "The question to answer.",
+      required: true,
+    },
+  },
+});
+
 if (!env.vars.question) {
   throw new Error("Please provide 2-3 keywords to generate a background image.");
 }

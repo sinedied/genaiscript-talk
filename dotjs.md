@@ -2,6 +2,11 @@
 
 https://microsoft.github.io/genaiscript/
 
+## Use cases
+- refactoring agent => find all .ts files, and migrate the code to use the new API
+- spell checker before commit
+- user story generator from docx spec
+
 ## Timing
 
 Ton slot est de 27mn: avec 20mn de talk, et 7mn de Q&A (questions de l'audience). Le talk ne doit absolument pas dépasser les 20mns.

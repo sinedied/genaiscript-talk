@@ -5,6 +5,7 @@
 - [ ] Create demo issue
 
 #### Preparation:
+- Run slide server
 - /!\ Check `.env`, that all demos works (may need `az login` for managed identity)
 - Open repo in VSCode, run `./prep-demo.sh`
 - Open browser with tabs:
@@ -36,7 +37,15 @@
 
 ## Issue reviewer
 - Open `issue-review.genai.js`
+  * `issue_prompt` explain the prompt
+  * `issue_def` to define the title/body
+  * `issue_github` to get the issue
+  * `issue_script` to set the meta
 
+- Run the script
+  * Show the extension panel
+  * Add title/description meta
+  * Change the model to "ollama:phi4"
 
 
 ## Agent: Git changelog generator
@@ -55,5 +64,3 @@
 
 
 
-## (Bonus)
-docx -> user story
