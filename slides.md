@@ -241,6 +241,7 @@ class: font-size-6 w-2/3
 
 - [bit.ly/genaiscript-talk](https://bit.ly/genaiscript-talk)
 - [aka.ms/genaiscript](https://aka.ms/genaiscript)
+- [aka.ms/genaiscript/samples](https://aka.ms/genaiscript/samples)
 
 ![qrcode](./images/qrcode.png){.w-60 .absolute .right-9em .top-1/2 .transform .-translate-y-1/2}
 

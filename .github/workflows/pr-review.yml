@@ -9,7 +9,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  GENAISCRIPT_DEFAULT_MODEL: {{ vars.GENAISCRIPT_DEFAULT_MODEL }}
+  GENAISCRIPT_DEFAULT_MODEL: ${{ vars.GENAISCRIPT_DEFAULT_MODEL }}
 
 jobs:
   review:
@@ -17,12 +17,15 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 22
-        cache: npm
-    - name: genaiscript pr-review
-      run: npx -y genaiscript@latest run pr-describe --pull-request-description --out-trace $GITHUB_STEP_SUMMARY
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: git fetch origin && git pull origin main:main
+      - name: genaiscript pr-review
+        run: npx -y genaiscript@latest run pr-describe --pull-request-description --out-trace $GITHUB_STEP_SUMMARY
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AZURE_OPENAI_API_ENDPOINT: ${{ secrets.AZURE_OPENAI_API_ENDPOINT }}
+          AZURE_OPENAI_API_KEY: ${{ secrets.AZURE_OPENAI_API_KEY }}

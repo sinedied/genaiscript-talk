@@ -9,7 +9,6 @@ script({
       required: false,
     },
   },
-  model: "ollama:phi4"
 });
 
 const { title, body } = await github.getIssue(env.vars.issue);
