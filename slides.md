@@ -228,7 +228,10 @@ layout: center
 # It's<span v-click class="font-size-6 color-white align-middle">&nbsp;(only)</span> a developer tool
 
 <!-- 
-Right now, it's build as tool for you to use rather than a framework to build applications. but I hope that we'll get GenAI frameworks in the future that gets inspired by this simplicity.
+Right now, it's build as tool for you to use rather than a framework to build applications. 
+Though I should note that it can run as an MCP server, exposing your scripts as tools to be used by your regular GenAI apps and workflows.
+
+What I hope is that we'll get GenAI frameworks in the future that gets inspired by this simplicity.
 -->
 
 ---

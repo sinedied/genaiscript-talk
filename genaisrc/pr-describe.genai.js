@@ -1,4 +1,5 @@
 const changes = await git.diff({
+  base: await git.defaultBranch(),
   staged: true,
   excludedPaths: [
     "**/package-lock.json",

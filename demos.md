@@ -2,7 +2,6 @@
 
 ## TODO
 - [ ] Create demo PR
-- [ ] Create demo issue
 
 #### Preparation:
 - Run slide server
@@ -10,7 +9,7 @@
 - Open repo in VSCode, run `./prep-demo.sh`
 - Open browser with tabs:
   * PR: 
-  * Issue:
+  * Issue: https://github.com/sinedied/genaiscript-talk/issues/4
 
 ## PR reviewer
 - Open `pr-describe.genai.js`
