@@ -3,7 +3,6 @@ theme: ./theme
 title: "Prompting is the New Scripting: Meet GenAIScript"
 # apply unocss classes
 class: text-center
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
 transition: fade
 mdc: true
 selectable: true
@@ -12,7 +11,7 @@ fonts:
   serif: Noto Sans
   mono: Incosolata
 colorSchema: dark
-background: ./images/bg.png
+background: /images/bg.png
 zoom: 2.3
 ---
 
@@ -21,15 +20,15 @@ $('#hello').text('DotJS');
 ```
 
 <!-- 
-jQuery once simplified web development by abstracting away complexities—and I think AI needs the same today.
+jQuery once simplified web development by abstracting away complexities — and I think AI needs the same today.
 
-Nearly 20 years ago, jQuery changed the way we build web applications. It made it easier to manipulate the DOM, handle events, and create animations. It was a game-changer, abstracting away the complexities and quirks of cross-browser compatibility, allowing developers like me to focus on what they wanted to achieve. AI needs the same today.
+Nearly 20 years ago, jQuery changed the way we build web applications. It made it easier to manipulate the DOM, handle events, and create animations. It was a game-changer, allowing developers like me and you to focus on what we wanted to achieve. Again, GenAI needs the same today.
 -->
 
 ---
 title: jQuery for GenAI?
 layout: cover
-background: ./images/bg2.png
+background: /images/bg2.png
 class: text-center
 zoom: 2.3
 ---
@@ -50,16 +49,15 @@ JavaScript creates.
 
 <!-- 
 I'm sure you can spot something familiar.
-This code here is valid JS that makes use of GenAI.
-And you're going to see that it's way more than a simple wrapper for prompts.
+
+[click] This code here is valid JS that makes use of GenAI.
+And you'll see that it's way more than just a fancy wrapper for prompts.
 -->
 
 ---
 layout: cover
 # background: 'linear-gradient(#0000, #0008, #0000), url(images/bg5.png)'
-background: 'linear-gradient(#0003, #000a, #0005), url(images/bg2.png)'
-# background: 'linear-gradient(#0000 25%, #000b 50%, #0000 75%), url(.genaiscript/image/d741a6023b6886b57713.png)'
-# background: 'linear-gradient(#0000 25%, #000b 50%, #0000 75%), url(.genaiscript/image/c7897d34ba7f1715ee2f.png)'
+background: 'linear-gradient(#0003, #000a, #0005), url(/images/bg2.png)'
 class: text-left
 zoom: .99
 ---
@@ -68,7 +66,7 @@ zoom: .99
 
 <Me class="animate-keyframes-fade-in animate-duration-1000 animate-ease-in-out animate-fill-mode-forwards animate-delay-2000 op-0"/>
 
-## ![](./images/genaiscript.svg){.inline-block .w-15 .m-r-4} Meet GenAIScript{.font-size-8}
+## ![](/images/genaiscript.svg){.inline-block .w-15 .m-r-4} Meet GenAIScript{.font-size-8}
 
 <!--
 Hey folks, I'm Yohan Lasorsa, and I work as Developer Advocate at Microsoft.
@@ -79,7 +77,7 @@ I maintain many open source projects on my free time, and I'm always looking for
 title: Issue without context
 layout: center
 ---
-![](./images/not-working.png){.inline-block .border-rounded-xl}
+![](/images/not-working.png){.inline-block .border-rounded-xl}
 
 <!-- 
 Answering issues like these to explain that you need some context to be able to help, 
@@ -89,7 +87,7 @@ Answering issues like these to explain that you need some context to be able to 
 title: PR without details
 layout: center
 ---
-![](./images/pr-details.png){.inline-block .border-rounded-xl}
+![](/images/pr-details.png){.inline-block .border-rounded-xl}
 
 <!--
 Or looking through all the changes in a PR trying to understand it - takes time. And it's not the really the fun part.
@@ -102,11 +100,9 @@ That's how I started looking into GenAIScript.
 ---
 zoom: 1.4
 layout: center
-# layout: image-left
-# image: images/genaiscript.svg
 ---
 
-![](./images/genaiscript.svg){.inline-block .w-20 .m-r-4 .float-left}
+![](/images/genaiscript.svg){.inline-block .w-20 .m-r-4 .float-left}
 # GenAIScript
 [aka.ms/genaiscript](https://aka.ms/genaiscript)
 
@@ -115,7 +111,6 @@ layout: center
 - Use with CLI, VS Code or GitHub Copilot
 - Works with GitHub Models, OpenAI, Anthropic, Ollama...
 - Built-in prompts, tools, agents and helpers
-<!-- - Supports MCP, vector search, RAG, multi-modal... -->
 
 <!--
 GenAIScript is a Open Source JS toolbox for GenAI that helps you get productive with it, allowing you to create even agents to do complex tasks for you, as simple as writing a script. 
@@ -124,12 +119,58 @@ It's really meant to be a developer tool and works best when it's used within a 
 
 But really instead of telling you about its extensive set of features, let's see it in action.
 
-=> Switch to DEMO
+## PR reviewer: 5min
+- Open `pr-describe.genai.js`
+  * Here I've created a new GenAIScript.
+  * The first thing you may have noticed is this `.genai.js` extension:
+  * This is what enables the GenAIScript environment. It works with TS and you can use ES Modules.
+  * Now let's start with the prompt: I want to build a script that will help me review PRs, by describing what's in the PR.
+  * `pr_prompt` explain the prompt
+  * `pr_def` to define the GIT_DIFF
+  * `pr_changes` to get the git changes
+
+- Test it: stage some changes
+  * Explain how to run or debug the script
+  * Show the chat panel
+
+- Now, we want this script to run on my GH repo, so I created a GH Action.
+  * I won't dive too much into the details, but the important parts here are:
+    - The action is triggered on PR events
+    - It runs the script using `npx` and the genaiscript CLI
+    - It uses the `GITHUB_TOKEN` and the permissions to update the PR
+  * Open the PR in the repo and show the results
+
+## Issue reviewer: 3min
+- Open `issue-review.genai.js`
+  * `issue_prompt` explain the prompt
+  * `issue_def` to define the title/body
+  * `issue_github` to get the issue
+  * `issue_script` to set the meta
+
+- What other meta and config settings can be useful?
+
+- Run the script
+  * Show the extension panel
+  * Add title/description meta
+  * Change the model to "ollama:phi4"
+
+## Copilot: Gen background: 4min
+- Open `background.genai.js`
+  * `bg_prompt` explain the prompt
+  * `bg_def` to define the question
+  * `bg_tool` to define the tool => tool+prompt=agent
+  * `bg_script` to set the meta
+
+- @genaiscript /run background geometric gradients blue
+
+## Agent: Git changelog generator: 3min
+- Open `changelog.genai.js`
+  * `ch_prompt` explain the prompt
+  * `ch_def_agent` explain agent
 -->
 
 ---
 layout: left
-image: images/genaiscript.svg
 hide: true
 ---
 
@@ -141,7 +182,7 @@ $`Say hello to ${name}`
 
 // Set context
 def(README, 'README.md')
-defImage(PICTURE, 'https://sli.dev/logo-square.png')
+defImage(PICTURE, 'https://http.cat/403')
 
 // Create tools
 defTool(
@@ -159,21 +200,42 @@ defAgent(
 )
 ```
 
-<!--
-Notes can also sync with clicks
+---
+title: Automated refactoring, anyone?
+layout: cover
+class: text-left
+background: /images/bg2.png
+zoom: 2.4
+---
 
-[click] This will be highlighted after the first click
+<div class="text-center font-size-9">
+  <span v-click.hide>🤔</span><span v-after>✨</span>
+</div>
 
-[click] Highlighted with `count = ref(0)`
+<v-after>
 
-[click:3] Last click (skip two clicks)
+```js
+$`Refactor all components to use the new
+template syntax introduced in Angular 17`
+
+// Built-in: ast-grep, fs, agent_fs...
+```
+
+</v-after>
+
+<!-- 
+You might still wonder how far this can be useful in your projects.
+
+[click] Then what about automated refactoring of your code?
+For example, Angular introduced a new template syntax, it can be a pain to update all your components manually, or write a proper migration script to do it.
+
+GenAIScript provides built-in support for navigating the file system, and even for AST manipulation, so hard scripts like this can become a breeze.
 -->
 
 ---
 title: There's more
 layout: cover
-# background: images/bg2.png
-background: 'linear-gradient(#0005, #000a, #0008), url(images/bg2.png)'
+background: 'linear-gradient(#0005, #000a, #0008), url(/images/bg2.png)'
 class: align-middle, font-size-4, more-slide
 zoom: 1.4
 ---
@@ -205,7 +267,7 @@ zoom: 1.4
 <!--
 There's way more to GenAIScript that what I can show you in 20min, and if there's a fancy new AI tool or pattern that you've heard about, there are good chances that GenAIScript already has it or will have it soon.
 
-But to my regret there's a small catch...
+But to my regret there's still one thing to keep in mind...
 -->
 
 ---
@@ -229,9 +291,10 @@ layout: center
 
 <!-- 
 Right now, it's build as tool for you to use rather than a framework to build applications. 
-Though I should note that it can run as an MCP server, exposing your scripts as tools to be used by your regular GenAI apps and workflows.
 
-What I hope is that we'll get GenAI frameworks in the future that gets inspired by this simplicity.
+[click] Though I should note that it can run as an MCP server, exposing your scripts as tools to be used by your regular GenAI apps and workflows. If you've never heard of MCP, it's an open protocol that allows you to expose your GenAI tools and resources for models to use.
+
+Now what I hope is that we'll get GenAI frameworks in the future that gets inspired by the simplicity of GenAIScript.
 -->
 
 ---
@@ -246,10 +309,12 @@ class: font-size-6 w-2/3
 - [aka.ms/genaiscript](https://aka.ms/genaiscript)
 - [aka.ms/genaiscript/samples](https://aka.ms/genaiscript/samples)
 
-![qrcode](./images/qrcode.png){.w-60 .absolute .right-9em .top-1/2 .transform .-translate-y-1/2}
+![qrcode](/images/qrcode.png){.w-60 .absolute .right-9em .top-1/2 .transform .-translate-y-1/2}
 
 <Contact/>
 
 <!--
 If you feel like GenAI could help you automate some of your tasks, but you don’t know where to start and you don't want to spend too much time on it, I think GenAIScript is a great place to begin.
+
+Thank you!
 -->

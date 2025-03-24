@@ -2,7 +2,7 @@
 
 https://microsoft.github.io/genaiscript/
 
-## Use cases
+## Use cases examples
 - refactoring agent => find all .ts files, and migrate the code to use the new API
 - spell checker before commit
 - user story generator from docx spec
@@ -14,7 +14,6 @@ Ton slot est de 27mn: avec 20mn de talk, et 7mn de Q&A (questions de l'audience)
 ## Abstract
 
 **Prompting is the New Scripting: Meet GenAIScript**
-(alt title: Meet GenAIScript: your "boring" tasks automator / GenAIScript: the jQuery of LLMs)
 
 jQuery once made web development easier by abstracting away complexities, allowing developers to focus on building rather than battling browser quirks. Today, AI development faces a similar challenge. New patterns emerge constantly and keeping up can be overwhelming, especially as AI tools become more powerful and complex. What if you could leverage cutting-edge AI capabilities to automate tasks using simple, familiar JavaScript abstractions? Enter GenAIScript—a way to integrate AI into your workflow effortlessly, treating prompts like reusable code snippets. In this talk, we’ll explore how GenAIScript makes AI automation feel as intuitive as writing JavaScript, helping you streamline repetitive work without the need for deep AI expertise.
 
@@ -78,19 +77,3 @@ That's how I initially started using GenAIScript.
   * The problem: the pace of AI advances is crazy, like JS 10 years ago, there are new models, new patterns, new tools every week.
   * As a developer, I often rely of scripts to automate some tasks, but I don't want to spend time learning all this and developer actuall applications that I need to maintain for this.
  -->
-
-### Demo/use cases
-
-* Real sample repo:
-  - Auto review PRs
-  - Diagram generation (mermaid) w/ Copilot integration
-  - Copilot integration => optimize
-  - Localization
-
-* works locally w/ Ollama
-* debugging scripts
-
-## Abstract ideas
-
-I don't know about you, but these I feel like we at least take the same or even more time to try using AI to simplify our work, than actually doing it. While LLMs are certainly useful, it needs a significant amount of work to be leverage them effectively for everyday's tasks. 
-- Mention: including files, images, audio. Multi-step workflows. custom AI tools, agentic workflows.

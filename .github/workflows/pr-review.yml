@@ -1,6 +1,5 @@
 name: GenAI PR Review
 on:
-  workflow_dispatch:
   pull_request:
     types: [opened, ready_for_review, reopened]
 

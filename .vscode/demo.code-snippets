@@ -51,9 +51,6 @@
 		"body": [
 			"const changes = await git.diff({",
 			"  staged: true,",
-			"  excludedPaths: [",
-			"    \"**/package-lock.json\",",
-			"  ],",
 			"});"
 		],
 		"description": "",
