@@ -18,11 +18,13 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 10
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-      - run: git fetch origin
+      - run: git fetch origin && git pull origin main:main
       - name: genaiscript pr-review
         run: npx -y genaiscript@latest run pr-describe --pull-request-description --out-trace $GITHUB_STEP_SUMMARY
         env:
