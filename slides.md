@@ -16,13 +16,15 @@ zoom: 2.3
 ---
 
 ```js
-$('#hello').text('DotJS');
+$('#hello').text('dotJS');
 ```
 
 <!-- 
 jQuery once simplified web development by abstracting away complexities — and I think AI needs the same today.
 
-Nearly 20 years ago, jQuery changed the way we build web applications. It made it easier to manipulate the DOM, handle events, and create animations. It was a game-changer, allowing developers like me and you to focus on what we wanted to achieve. Again, GenAI needs the same today.
+Nearly 20 years ago, jQuery changed the way we build web applications. It made it easier to manipulate the DOM, handle events, and create animations, when browsers at the time were full of quirks. It was a game-changer, allowing developers like you and me to focus on what we wanted to achieve. 
+
+Today, we face a similar challenge with GenAI. Every week we have new models, new tools, new approaches, and trying to get productive with GenAI while keeping up with all the changes can be exhausting.
 -->
 
 ---
@@ -48,9 +50,9 @@ JavaScript creates.
 ````
 
 <!-- 
-I'm sure you can spot something familiar.
+I'm sure this code here somehow looks familiar.
 
-[click] This code here is valid JS that makes use of GenAI.
+[click] This code is valid JS that makes use of GenAI.
 And you'll see that it's way more than just a fancy wrapper for prompts.
 -->
 
@@ -68,9 +70,16 @@ zoom: .99
 
 ## ![](/images/genaiscript.svg){.inline-block .w-15 .m-r-4} Meet GenAIScript{.font-size-8}
 
-<!--
+<!-- 
 Hey folks, I'm Yohan Lasorsa, and I work as Developer Advocate at Microsoft.
-I maintain many open source projects on my free time, and I'm always looking for ways to make it more manageable.
+
+I maintain multiple open source projects on my free time, and I'm always looking for ways to make it more manageable, given that I also have 2 kids at home.
+-->
+
+<!--
+So you already know that I work at Microsoft, but on my free time,
+
+I maintain multiple open source projects, and I'm always looking for ways to make it more manageable, given that I also have 2 kids at home.
 -->
 
 ---
@@ -90,9 +99,9 @@ layout: center
 ![](/images/pr-details.png){.inline-block .border-rounded-xl}
 
 <!--
-Or looking through all the changes in a PR trying to understand it - takes time. And it's not the really the fun part.
+Or looking through all the changes in a PR trying to figure out what was the intent behind the changes - takes time. And it's not the really the fun part of OSS to be honest.
 
-And since I've been working with GenAI for a while now, I thought that it could actually be useful for stuff like this, if I could make it work without too much effort!
+And since I've been working with GenAI for a while now, I thought that it could actually be useful for use cases like this, if I could make it work without too much effort!
 
 That's how I started looking into GenAIScript.
 -->
@@ -113,41 +122,32 @@ layout: center
 - Built-in prompts, tools, agents and helpers
 
 <!--
-GenAIScript is a Open Source JS toolbox for GenAI that helps you get productive with it, allowing you to create even agents to do complex tasks for you, as simple as writing a script. 
+GenAIScript is a Open Source JS toolbox for GenAI, allowing you to create even agents to do complex tasks for you, as simple as writing a script. 
 
 It's really meant to be a developer tool and works best when it's used within a project repository.
 
 But really instead of telling you about its extensive set of features, let's see it in action.
 
-## PR reviewer: 5min
-- Open `pr-describe.genai.js`
+## Issue reviewer: 6min
+- Open `issue-review.genai.js`
   * Here I've created a new GenAIScript.
   * The first thing you may have noticed is this `.genai.js` extension:
   * This is what enables the GenAIScript environment. It works with TS and you can use ES Modules.
-  * Now let's start with the prompt: I want to build a script that will help me review PRs, by describing what's in the PR.
-  * `pr_prompt` explain the prompt
-  * `pr_def` to define the GIT_DIFF
-  * `pr_changes` to get the git changes
-
-- Test it: stage some changes
-  * Explain how to run or debug the script
-  * Show the chat panel
-
-- Now, we want this script to run on my GH repo, so I created a GH Action.
-  * I won't dive too much into the details, but the important parts here are:
-    - The action is triggered on PR events
-    - It runs the script using `npx` and the genaiscript CLI
-    - It uses the `GITHUB_TOKEN` and the permissions to update the PR
-  * Open the PR in the repo and show the results
-
-## Issue reviewer: 3min
-- Open `issue-review.genai.js`
+  * Now let's start with the prompt: I want to build a script that will help me review issues.
   * `issue_prompt` explain the prompt
   * `issue_def` to define the title/body
+  * Here comes usually the difficult part: how to give the AI model the proper context so that it can do its job?
   * `issue_github` to get the issue
   * `issue_script` to set the meta
 
-- What other meta and config settings can be useful?
+- Explain how to run or debug the script, then run the script
+
+- Now, I want this script to run on my GH repo, so I created a GH Action.
+  * I won't dive too much into the details, but the important parts here are:
+    - The action is triggered on issue events
+    - It runs the script using `npx` and the genaiscript CLI
+    - It uses the `GITHUB_TOKEN` and the permissions to create a comment
+  * Open the issue in the repo and show the results
 
 - Run the script
   * Show the extension panel
@@ -156,6 +156,7 @@ But really instead of telling you about its extensive set of features, let's see
 
 ## Copilot: Gen background: 4min
 - Open `background.genai.js`
+  * Now let's do something a bit different: when I work on a talk, I'm always looking for nice backgrounds for my slides. So I wanted to see if could use a script for that.
   * `bg_prompt` explain the prompt
   * `bg_def` to define the question
   * `bg_tool` to define the tool => tool+prompt=agent
@@ -163,7 +164,7 @@ But really instead of telling you about its extensive set of features, let's see
 
 - @genaiscript /run background geometric gradients blue
 
-## Agent: Git changelog generator: 3min
+## Agent: Git changelog generator: 4min
 - Open `changelog.genai.js`
   * `ch_prompt` explain the prompt
   * `ch_def_agent` explain agent
@@ -229,7 +230,7 @@ You might still wonder how far this can be useful in your projects.
 [click] Then what about automated refactoring of your code?
 For example, Angular introduced a new template syntax, it can be a pain to update all your components manually, or write a proper migration script to do it.
 
-GenAIScript provides built-in support for navigating the file system, and even for AST manipulation, so hard scripts like this can become a breeze.
+GenAIScript provides built-in support for navigating the file system, and even for AST manipulation, so hard scripts like this can become easier to write as a prompt.
 -->
 
 ---
@@ -244,7 +245,7 @@ zoom: 1.4
 .more-slide span {
   opacity: 0;
   @apply animate-keyframes-fade-in animate-duration-1000 animate-ease-in-out animate-fill-mode-forwards;
-  animation-delay: calc(var(--o) * 300ms + 2s);
+  animation-delay: calc(var(--o) * 300ms + .5s);
 }
 .no-anim {
   opacity: 1 !important;
@@ -267,7 +268,7 @@ zoom: 1.4
 <!--
 There's way more to GenAIScript that what I can show you in 20min, and if there's a fancy new AI tool or pattern that you've heard about, there are good chances that GenAIScript already has it or will have it soon.
 
-But to my regret there's still one thing to keep in mind...
+But to my regret there's still one thing that you have to keep in mind...
 -->
 
 ---
@@ -303,13 +304,13 @@ layout: center
 class: font-size-6 w-2/3
 ---
 
-# Links{.font-size-10}<br>
+# Start automating today{.font-size-10}<br>
 
 - [bit.ly/genaiscript-talk](https://bit.ly/genaiscript-talk)
 - [aka.ms/genaiscript](https://aka.ms/genaiscript)
 - [aka.ms/genaiscript/samples](https://aka.ms/genaiscript/samples)
 
-![qrcode](/images/qrcode.png){.w-60 .absolute .right-9em .top-1/2 .transform .-translate-y-1/2}
+![qrcode](/images/qrcode.png){.w-50 .absolute .right-8em .top-1/2 .transform .-translate-y-1/2}
 
 <Contact/>
 
