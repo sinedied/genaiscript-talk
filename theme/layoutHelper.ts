@@ -9,9 +9,20 @@ export function resolveAssetUrl(url: string) {
   return url
 }
 
-export function handleBackground(background?: string, dim = false): CSSProperties {
+export function handleBackground(_background?: string, dim = false): CSSProperties {
+  let background = _background;
   const isColor = background && (['#', 'rgb', 'hsl'].some(v => background.indexOf(v) === 0));
   const isCss = background && (['url', 'gradient'].some(v => background.includes(v)));
+
+  // If background contains "url(...)", extract the URL and resolve it
+  if (background && background.includes('url(')) {
+    const urlMatch = background.match(/url\(['"]?(.*?)['"]?\)/);
+    if (urlMatch && urlMatch[1]) {
+      const originalUrl = urlMatch[1];
+      const resolvedUrl = resolveAssetUrl(originalUrl);
+      background = background.replace(originalUrl, resolvedUrl);
+    }
+  }
   
   const style = {
     ...(isColor || isCss ? {
