@@ -15,6 +15,14 @@ background: /images/bg.png
 zoom: 2.3
 ---
 
+<!-- 
+## Abstract
+
+**Prompting is the New Scripting: Meet GenAIScript**
+
+jQuery once made web development easier by abstracting away complexities, allowing developers to focus on building rather than battling browser quirks. Today, AI development faces a similar challenge. New patterns emerge constantly and keeping up can be overwhelming, especially as AI tools become more powerful and complex. What if you could leverage cutting-edge AI capabilities to automate tasks using simple, familiar JavaScript abstractions? Enter GenAIScript—a way to integrate AI into your workflow effortlessly, treating prompts like reusable code snippets. In this talk, we’ll explore how GenAIScript makes AI automation feel as intuitive as writing JavaScript, helping you streamline repetitive work without the need for deep AI expertise.
+-->
+
 ```js
 $('#hello').text('dotJS');
 ```

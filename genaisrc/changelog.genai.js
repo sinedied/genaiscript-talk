@@ -7,6 +7,6 @@ defAgent(
 );
 
 $`Create a file CHANGELOG.md.
-Include a list of changes based on the last 15 commits, including new features, bug fixes, and breaking changes. Be clear and concise, do not include any unnecessary details and skip useless commits.
-Use emojis to make the changelog more engaging.`;
-
+Include a list of changes based on the last 15 commits, including new features and bug fixes sections.
+Be clear and concise, do not include any unnecessary details like who did it and skip useless commits.
+Use language understandable for a non-technical audience.`;

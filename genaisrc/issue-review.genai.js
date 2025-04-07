@@ -25,6 +25,6 @@ Review the <TITLE> and <BODY> and report your feedback that will be added as a c
 Be brief and friendly.
 
 ## Instructions
-- Check that has enough details to help the developer. Ask clarifying questions if needed.
+- Check that it has enough details to help the developer. Ask clarifying questions if needed.
 - Do not suggest code changes or guidance. Only provide feedback on the issue itself.
 `;

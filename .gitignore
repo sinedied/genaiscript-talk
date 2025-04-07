@@ -5,5 +5,5 @@ dist
 .vite-inspect
 .remote-assets
 components.d.ts
-*.env*
+*.env
 TODO
