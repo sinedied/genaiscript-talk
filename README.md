@@ -4,7 +4,7 @@
 
 - 🖥️ [Slides](https://sinedied.github.io/genaiscript-talk/)
 - 🧑‍💻 [Demos](./genaisrc/)
-- 📺 YouTube video [coming soon]
+- 📺 [YouTube video](https://www.youtube.com/watch?v=PrhPSUHXWJ4&list=PLMW8Xq7bXrG5WtvuO728_t6fmKpwgotDC&index=7)
 
 ## Get started with GenAIScript
 
