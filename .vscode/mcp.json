@@ -1,0 +1,17 @@
+{
+  "servers": {
+    "code-review": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "genaiscript@latest",
+        "mcp",
+        "--groups",
+        "mcp",
+        "--cwd",
+        "${workspaceFolder}"
+      ]
+    }
+  }
+}

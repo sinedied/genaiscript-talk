@@ -1,1 +1,1 @@
-$`Create an haiku about why JS is awesome`
+$`Create an haiku about why JS is awesome`;

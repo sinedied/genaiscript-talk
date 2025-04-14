@@ -9,7 +9,7 @@ const changes = await git.diff({
 def("GIT_DIFF", changes, {
   language: "diff",
   maxTokens: 20000,
-})
+});
 
 $`## Role
 You're an expert software engineer with 20 years of open source experience.
@@ -23,5 +23,5 @@ Write a high level summary of the changes in GIT_DIFF for a pull request in a wa
 - Use bullet points to list the changes
 - Use emojis to make the description more engaging
 - Focus on the most important changes
-- Ignore comments about imports (like added, remove, changed, etc.)
+- Ignore comments about imports (like added, removed, changed, etc.)
 `;
