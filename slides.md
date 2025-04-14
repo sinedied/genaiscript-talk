@@ -69,10 +69,9 @@ layout: cover
 # background: 'linear-gradient(#0000, #0008, #0000), url(images/bg5.png)'
 background: 'linear-gradient(#0003, #000a, #0005), url(/images/bg2.png)'
 class: text-left
-zoom: .99
 ---
 
-# Prompting is the New Scripting
+# Prompting is the New Scripting{.whitespace-nowrap}
 
 <Me class="animate-keyframes-fade-in animate-duration-1000 animate-ease-in-out animate-fill-mode-forwards animate-delay-2000 op-0"/>
 

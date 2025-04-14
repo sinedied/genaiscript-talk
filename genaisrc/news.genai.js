@@ -1,15 +1,15 @@
 script({
   mcpServers: {
     playwright: {
-      command: 'npx',
-      args: ['-y', '@playwright/mcp']
+      command: "npx",
+      args: ["-y", "@playwright/mcp"],
     },
     youtube: {
-      command: 'npx',
-      args: ['-y', '@sinco-lab/mcp-youtube-transcript']
+      command: "npx",
+      args: ["-y", "@sinco-lab/mcp-youtube-transcript"],
     },
-  }
-})
+  },
+});
 
 $`## Role
 You're an expert tech analyst. 

@@ -31,7 +31,7 @@
 			"- Use bullet points to list the changes",
 			"- Use emojis to make the description more engaging",
 			"- Focus on the most important changes",
-			"- Ignore comments about imports (like added, remove, changed, etc.)",
+			"- Ignore comments about imports (like added, removed, changed, etc.)",
 			"`;"
 		],
 	},
@@ -43,7 +43,6 @@
 			"  maxTokens: 20000,",
 			"});"
 		],
-		"description": "",
 		"scope": "javascript"
 	},
 	"prchanges": {
@@ -53,7 +52,6 @@
 			"  staged: true,",
 			"});"
 		],
-		"description": "",
 		"scope": "javascript"
 	},
 	"issueprompt": {
@@ -72,7 +70,6 @@
 			"- Do not suggest code changes or guidance. Only provide feedback on the issue itself.",
 			"`;"
 		],
-		"description": "",
 		"scope": "javascript"
 	},
 	"issuedef": {
@@ -81,7 +78,6 @@
 			"def(\"TITLE\", title);",
 			"def(\"BODY\", body);"
 		],
-		"description": "",
 		"scope": "javascript"
 	},
 	"issuegithub": {
@@ -89,7 +85,6 @@
 		"body": [
 			"const { title, body } = await github.getIssue(env.vars.issue);"
 		],
-		"description": "",
 		"scope": "javascript"
 	},
 	"issuescript": {
@@ -105,7 +100,6 @@
 			"  },",
 			"});"
 		],
-		"description": "",
 		"scope": "javascript"
 	},
 	"chprompt": {
@@ -116,7 +110,6 @@
 			"Be clear and concise, do not include any unnecessary details like who did it and skip useless commits.",
 			"Use language understandable for a non-technical audience.`;"
 		],
-		"description": "",
 		"scope": "javascript"
 	},
 	"chdefagent": {
@@ -130,7 +123,6 @@
 			"  { system: [\"system.git\"] }",
 			");"
 		],
-		"description": "",
 		"scope": "javascript"
 	},
 	"bgprompt": {
@@ -141,7 +133,6 @@
 			"Then generate 3 images based on the same enriched prompt using the gen_image tool.",
 			"Once you've finished, just say that you're done.`;"
 		],
-		"description": "",
 		"scope": "javascript"
 	},
 	"bgdef": {
@@ -149,7 +140,6 @@
 		"body": [
 			"def(\"QUERY\", env.vars.question);"
 		],
-		"description": "",
 		"scope": "javascript"
 	},
 	"bgtool": {
@@ -166,7 +156,6 @@
 			"  },",
 			");"
 		],
-		"description": "",
 		"scope": "javascript"
 	},
 	"bgscript": {
@@ -182,7 +171,161 @@
 			"  },",
 			"});"
 		],
+		"scope": "javascript"
+	},
+	"refprompt": {
+		"prefix": "ref_prompt",
+		"body": [
+			"\\$`You're a code refactoring agent. Perform the following tasks:",
+			"",
+			"1. Find all **/*.genai.js files in this repository and then pick ONLY the first 3 files.",
+			"2. For each file, send it to the refactor agent.",
+			"3. Update the original file with the refactored content.",
+			"`;"
+		],
+		"scope": "javascript"
+	},
+	"refdef1": {
+		"prefix": "ref_def1",
+		"body": [
+			"defAgent(",
+			"  \"refactor\",",
+			"  \"Refactor a JavaScript file\",",
+			"  `## Role",
+			"  You're an expert JavaScript developer. Refactor the JavaScript file specified in QUERY.",
+			"  ",
+			"  ## Task",
+			"  1. Check that it has a \"script({})\" call at the top of the file. Create one if it doesn't exist.",
+			"  2. Update the \"script({})\" call to include the \"group\" property, and generate a short name based on the script's purpose. Group names for related scripts should be the same.",
+			"  3. Do no change anything else in the file.",
+			"  4. Update the original file with the new content.",
+			"  `,",
+			"  { tools: [\"fs_read_file\"], system: [\"system.files\"] }",
+			");"
+		],
+		"scope": "javascript"
+	},
+	"refdef2": {
+		"prefix": "ref_def2",
+		"body": [
+			"defAgent(",
+			"  \"files\",",
+			"  \"Find files in the repository\",",
+			"  `You're a helpful LLM agent that can use tools to find files in this repository.",
+			"  Answer the question in QUERY.`,",
+			"  { tools: [\"fs_find_files\"] }",
+			");"
+		],
+		"scope": "javascript"
+	},
+	"refscript": {
+		"prefix": "ref_script",
+		"body": [
+			"script({",
+			"  model: \"large\",",
+			"  system: [\"system.files\"],",
+			"});"
+		],
+		"scope": "javascript"
+	},
+	"newsprompt": {
+		"prefix": "news_prompt",
+		"body": [
+			"\\$`## Role",
+			"You're an expert tech analyst. ",
+			"",
+			"## Content",
+			"- https://developer.microsoft.com/javascript/",
+			"- https://www.youtube.com/watch?v=PrhPSUHXWJ4",
+			"",
+			"## Task",
+			"Go through all specified content and summarize key points and latest updates in 3 bullets points in total.",
+			"`;"
+		],
+		"scope": "javascript"
+	},
+	"newsscript": {
+		"prefix": "news_script",
+		"body": [
+			"script({",
+			"  mcpServers: {",
+			"    playwright: {",
+			"      command: 'npx',",
+			"      args: ['-y', '@playwright/mcp']",
+			"    },",
+			"    youtube: {",
+			"      command: 'npx',",
+			"      args: ['-y', '@sinco-lab/mcp-youtube-transcript']",
+			"    },",
+			"  }",
+			"});"
+		],
+		"scope": "javascript"
+	},
+	"newsmcp1": {
+		"prefix": "news_mcp1",
+		"body": [
+			"    playwright: {",
+			"  command: 'npx',",
+			"  args: ['-y', '@playwright/mcp']",
+			"},"
+		],
 		"description": "",
 		"scope": "javascript"
+	},
+	"newsmcp2": {
+		"prefix": "news_mcp2",
+		"body": [
+			"    youtube: {",
+			"  command: 'npx',",
+			"  args: ['-y', '@sinco-lab/mcp-youtube-transcript']",
+			"},"
+		],
+		"scope": "javascript"
+	},
+	"crprompt": {
+		"prefix": "cr_prompt",
+		"body": [
+			"\\$`## Role",
+			"You are a grumpy senior developer with 40+ years of experience, who's reviewing code most likely written by an AI. You hate vibe coding and think AI generated code is shit.",
+			"",
+			"## Task",
+			"Review the provided code, pointing out every single mistake, inefficiency, or bad practice you can find. Use a sarcastic, grumpy, and slightly condescending tone throughout your review. Follow these guidelines:",
+			"",
+			"- Be specific about what's wrong and why it's wrong",
+			"- Reference proper coding standards and best practices",
+			"- Use colorful expressions of frustration and disbelief",
+			"- Acknowledge working code in a few words, but never give praise",
+			"- Always assume the AI could have done better",
+			"- Say the minimum amount of words possible to get your point across",
+			"`;"
+		],
+		"scope": "javascript"
+	},
+	"crdef": {
+		"prefix": "cr_def",
+		"body": [
+			"def(\"CODE\", env.vars.code);"
+		],
+		"scope": "javascript"
+	},
+	"crscript": {
+		"prefix": "cr_script",
+		"body": [
+			"script({",
+			"  title: \"code_review\",",
+			"  description: \"Get a code review from a grumpy senior developer\",",
+			"  group: \"mcp\",",
+			"  parameters: {",
+			"    code: {",
+			"      type: \"string\",",
+			"      description: \"The code to be reviewed\",",
+			"      required: true,",
+			"    },",
+			"  },",
+			"});"
+		],
+		"scope": "javascript"
 	}
+
 }

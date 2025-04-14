@@ -3,8 +3,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build --base /genaiscript-talk/",
+    "build": "slidev build --base /genaiscript-talk/ && slidev build --base /genaiscript-talk/long/ --out dist/long slides-long.md",
     "dev": "slidev",
+    "dev:long": "slidev slides-long.md",
     "export": "slidev export"
   },
   "dependencies": {
