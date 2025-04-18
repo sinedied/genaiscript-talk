@@ -4,7 +4,7 @@
 
 - 🧑‍💻 [Demos](./genaisrc/)
 - 🖥️ Slides: [short version](https://sinedied.github.io/genaiscript-talk/) / [long version](https://sinedied.github.io/genaiscript-talk/long/)
-- 📺 [Watch on YouTube (dotJS 2025, 20 min)](https://www.youtube.com/watch?v=PrhPSUHXWJ4&list=PLMW8Xq7bXrG5WtvuO728_t6fmKpwgotDC&index=7)
+- 📺 Watch on YouTube: [dotJS 2025, 20 min](https://www.youtube.com/watch?v=PrhPSUHXWJ4&list=PLMW8Xq7bXrG5WtvuO728_t6fmKpwgotDC&index=7) / [AgentHack 2025, 60 min](https://www.youtube.com/watch?v=Aq30zfbWNSQ)
 
 ## Get started with GenAIScript
 
