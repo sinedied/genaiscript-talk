@@ -22,6 +22,8 @@ class: text-left
 
 ## ![](/images/genaiscript.svg){.inline-block .w-15 .m-r-4} Meet GenAIScript{.font-size-8}
 
+![](/images/df-lyon.png){.inline-block .w-30 .absolute .top-0 .right-0 .m-r-12 .m-t-8}
+
 <!-- 
 Hey folks, I'm Yohan Lasorsa, and I work as Developer Advocate at Microsoft.
 
@@ -44,7 +46,7 @@ jQuery once made web development easier by abstracting away complexities, allowi
 -->
 
 ```js
-$('#hello').text('AgentHack 2025');
+$('#hello').text('DevFest Lyon');
 ```
 
 <!-- 
@@ -131,6 +133,8 @@ GenAIScript is a Open Source JS toolbox for GenAI, allowing you to create even a
 It's really meant to be a developer tool and works best when it's used within a project repository.
 
 But really instead of telling you about its extensive set of features, let's see it in action.
+
+=> DEMO
 -->
 
 ---
@@ -423,6 +427,7 @@ Thank you!
 -->
 
 ---
+hide: disabled
 layout: cover
 background: url(/images/genai-js.png)
 ---
@@ -434,3 +439,13 @@ background: url(/images/genai-js.png)
 <!-- 
 Also, if you want to dig more into the GenAI fundamentals, we have this free course focused on using GenAi with JavaScript, with a lot of demos, so be sure to check it out.
 -->
+
+---
+title: Conclusion
+layout: center
+class: font-size-6 w-2/3
+---
+
+# Your feedback 🫵 🙏{.font-size-10}<br>
+
+![qrcode](/images/qrcode-feedback.png){.w-50 .absolute .right-8em .top-1/2 .transform .-translate-y-1/2}
