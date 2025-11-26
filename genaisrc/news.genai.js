@@ -15,8 +15,8 @@ $`## Role
 You're an expert tech analyst. 
 
 ## Content
+- https://www.youtube.com/watch?v=TUeET4zY95c
 - https://developer.microsoft.com/javascript/
-- https://www.youtube.com/watch?v=PrhPSUHXWJ4
 
 ## Task
 Go through all specified content and summarize key points and latest updates in 3 bullets points in total.
