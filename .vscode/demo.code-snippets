@@ -232,14 +232,17 @@
 		"prefix": "news_prompt",
 		"body": [
 			"\\$`## Role",
-			"You're an expert tech analyst. ",
+			"You're an expert tech analyst.",
 			"",
-			"## Content",
-			"- https://developer.microsoft.com/javascript/",
-			"- https://www.youtube.com/watch?v=TUeET4zY95c",
+			"## Current date",
+			"\\${new Date().toISOString().split(\"T\")[0]}",
 			"",
 			"## Task",
-			"Go through all specified content and summarize key points and latest updates in 3 bullets points in total.",
+			"Use the mensual baseline recaps like this URL https://web.dev/blog/baseline-digest-<month_in_3_letters>-<year>?hl=fr and summarize the key new features of the web platform for the past 3 completed months as short bullet points.",
+			"- Focus on new features, improvements, and changes that impact developers and can be used in production.",
+			"- Exclude features that are not yet in production or are experimental.",
+			"",
+			"Answer in French.",
 			"`;"
 		],
 		"scope": "javascript"
@@ -249,13 +252,9 @@
 		"body": [
 			"script({",
 			"  mcpServers: {",
-			"    playwright: {",
-			"      command: 'npx',",
-			"      args: ['-y', '@playwright/mcp']",
-			"    },",
-			"    youtube: {",
-			"      command: 'npx',",
-			"      args: ['-y', '@sinco-lab/mcp-youtube-transcript']",
+			"    fetch: {",
+			"      command: 'uvx',",
+			"      args: ['mcp-server-fetch']",
 			"    },",
 			"  }",
 			"});"
@@ -265,22 +264,12 @@
 	"newsmcp1": {
 		"prefix": "news_mcp1",
 		"body": [
-			"    playwright: {",
+			"    fetch: {",
 			"  command: 'npx',",
-			"  args: ['-y', '@playwright/mcp']",
+			"  args: ['mcp-server-fetch']",
 			"},"
 		],
 		"description": "",
-		"scope": "javascript"
-	},
-	"newsmcp2": {
-		"prefix": "news_mcp2",
-		"body": [
-			"    youtube: {",
-			"  command: 'npx',",
-			"  args: ['-y', '@sinco-lab/mcp-youtube-transcript']",
-			"},"
-		],
 		"scope": "javascript"
 	},
 	"crprompt": {
