@@ -228,6 +228,8 @@ flowchart
 
 <!--
 Let's explain a bit more how agents works, using an example like our changelog generator.
+
+=> GO BACK TO DEMO
 -->
 
 ---
@@ -370,6 +372,8 @@ zoom: 1.4
 [Teams Integration]{.text-gray-3 style="--o: 15"} &nbsp;&nbsp;&nbsp;&nbsp; [User Input]{.font-size-5 style="--o: 20"} &nbsp;&nbsp;&nbsp;&nbsp; [Vector Search]{.font-size-3 style="--o: 5"} &nbsp;&nbsp;&nbsp;&nbsp; [Semantic Caching]{style="--o: 13"}
 
 [Containers]{.font-size-5 style="--o: 3"} &nbsp;&nbsp;&nbsp;&nbsp; [JSON schema]{style="--o: 14"} &nbsp;&nbsp;&nbsp;&nbsp; [Jinja Templates]{.text-gray-3 style="--o: 7"} &nbsp;&nbsp;&nbsp;&nbsp; [Zod]{style="--o: 19"}
+
+[OpenAPI Server]{.text-gray-3 style="--o: 16"} &nbsp;&nbsp;&nbsp;&nbsp; Image Edition{.font-size-5 style="--o: 21"}
 
 <!--
 There's way more to GenAIScript that what I can show you in this session, and what I learn from the past months using it is that if there's a fancy new AI tool or pattern that you've heard about, there are good chances that GenAIScript already has it or will have it soon.

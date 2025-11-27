@@ -23,14 +23,15 @@ git add ./components/Footer.vue
 
 if [ "$1" == "long" ]; then
   ## Prepare files
-  echo "" > ./genaisrc/pr-describe.genai.js
+  # echo "" > ./genaisrc/pr-describe.genai.js
   echo "" > ./genaisrc/news.genai.js
   echo "" > ./genaisrc/code-review.genai.js
   echo "" > ./genaisrc/refactor.genai.js
   echo "{}" > .vscode/mcp.json
 
   ## Open files
-  code ./genaisrc/pr-describe.genai.js
+  # code ./genaisrc/pr-describe.genai.js
+  code ./genaisrc/issue-review.genai.js
 
   echo "Setup done for long version"
 else
