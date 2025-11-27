@@ -1,7 +1,7 @@
 name: GenAI Issue Review
 on:
   issues:
-    types: [created, opened, reopened, edited]
+    types: [opened, reopened, edited]
 
 concurrency:
   group: issue-${{ github.event.issue.number }}
