@@ -129,7 +129,7 @@
 		"prefix": "bg_prompt",
 		"body": [
 			"\\$`## Instructions",
-			"Create an enriched prompt for Dall-E 3 based on QUERY, adding details to the original prompt so it can generate a background image for a presentation.",
+			"Create an enriched prompt for gpt-image-1 based on QUERY, adding details to the original prompt so it can generate a background image for a presentation.",
 			"Then generate 3 images based on the same enriched prompt using the gen_image tool.",
 			"Once you've finished, just say that you're done.`;"
 		],
@@ -150,8 +150,8 @@
 			"  \"Generate an image\",",
 			"  { prompt: \"\" },",
 			"  async (args) => {",
-			"    const { image } = await generateImage(args.prompt, { size: \"1792x1024\" });",
-			"    env.output.appendContent(`[![background](\\${image.filename})](\\${image.filename})`);",
+			"    const { image } = await generateImage(args.prompt, { size: \"1536x1024\" });",
+			"    env.output.image(image.filename);",
 			"    return image.filename;",
 			"  },",
 			");"
