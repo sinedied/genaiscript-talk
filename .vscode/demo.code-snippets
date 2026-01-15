@@ -242,6 +242,7 @@
 			"Use the mensual baseline recaps like this URL https://web.dev/blog/baseline-digest-<month_in_3_letters>-<year>?hl=fr and summarize the key new features of the web platform for the past 3 completed months as short bullet points.",
 			"- Focus on new features, improvements, and changes that impact developers and can be used in production.",
 			"- Exclude features that are not yet in production or are experimental.",
+			"- If you can't fetch last month, it may not be ready yet, so just skip it and do the previous months.",
 			"",
 			"Answer in French.",
 			"`;"

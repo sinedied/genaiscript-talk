@@ -22,7 +22,7 @@ class: text-left
 
 ## ![](/images/genaiscript.svg){.inline-block .w-15 .m-r-4} Meet GenAIScript{.font-size-8}
 
-![](/images/df-lyon.png){.inline-block .w-30 .absolute .top-0 .right-0 .m-r-12 .m-t-8}
+![](/images/snowcamp.svg){.inline-block .w-60 .absolute .top-0 .right-0 .m-r-12 .m-t-8}
 
 <!-- 
 Hey folks, I'm Yohan Lasorsa, and I work as Developer Advocate at Microsoft.
@@ -46,7 +46,7 @@ jQuery once made web development easier by abstracting away complexities, allowi
 -->
 
 ```js
-$('#hello').text('DevFest Lyon');
+$('#hello').text('SnowCamp');
 ```
 
 <!-- 
